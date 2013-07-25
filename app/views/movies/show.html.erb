@@ -19,7 +19,7 @@
         <th>Role</th>
         <th></th>
       </tr>
-      <% @movie.people.each do |person| %>
+      <% @movie.people.uniq.each do |person| %>
         <tr>
           <td><%= person.name %>  </td>
           <% roles = person.involvements.collect {|i| i.role }%>
