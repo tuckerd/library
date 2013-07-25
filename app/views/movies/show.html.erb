@@ -11,32 +11,32 @@
     </tr>
   </table>
   <p><%= simple_format(@movie.description) %></p>
-
-  <%#= unless @movie.people.empty? do %>
+</div>
+<div>
     <table>
       <tr>
-        <th>Person</th>
-        <th>Role</th>
+        <th>Cast</th>
+        <th><%= link_to "Add Cast", new_involvement_path %></th>
         <th></th>
       </tr>
       <% @movie.people.uniq.each do |person| %>
         <tr>
-          <td><%= person.name %>  </td>
-          <% roles = person.involvements.collect {|i| i.role }%>
-          <% roles = roles.join(', ') %>
-          <td><%= roles %></td>
-          <td><%= link_to "Delete", involvement_path, 
-                  method: "delete", confirm: "Are you sure?" %></td>
+          <td><%= link_to person.name, person_path %></td>
+          <% person.involvements.each  do |i| %>
+            <td><%= i.role %>
+            (<%= link_to "x", involvement_path(i), 
+                  method: "delete", confirm: "Are you sure?" %>)</td>
+          <% end -%>
         </tr>
-      <% end %>
+      <% end -%>
     </table>
-  <%# end -%>
 </div>
-
+</div>
+<br>
+<footer>
 <%= link_to "All Movies", movies_path %> | 
 <%= link_to "Edit Movie", edit_movie_path %> |
 <%= link_to "Remove Movie", movie_path,
-        method: "delete", confirm: "Are you sure?" %> |
+        method: "delete", confirm: "Are you sure?" %>
+</footer>
 
-
-<%= link_to "Associate People", new_involvement_path %>

@@ -1,11 +1,27 @@
-<h3>Person Details</h3>
+<h2><%= @person.name %></h2>
+<p><%= simple_format(@person.bio) %></p>
 <div>
-    <h2>Name:  
-    <%= @person.name %>
-    </h2>
-  <p><%= simple_format(@person.bio) %></p>
+  <table>
+    <tr>
+      <th>Role</th>
+      <th><%= link_to "Add Movie or Role", new_involvement_path %></th>
+      <th></th>
+    </tr>
+    <% @person.movies.uniq.each do |movie| %>
+      <tr>
+        <td><%= link_to movie.title, person_path %></td>
+        <% movie.involvements.each  do |i| %>
+          <td><%= i.role %>
+          (<%= link_to "x", involvement_path(i), 
+                method: "delete", confirm: "Are you sure?" %>)</td>
+        <% end -%>
+      </tr>
+    <% end -%>
+  </table>
 </div>
-
+<br>
+<nav>
 <%= link_to "All People", people_path %> | 
 <%= link_to "Remove Person", person_path,
         method: "delete", confirm: "Are you sure?" %>
+</nav>

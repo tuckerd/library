@@ -27,6 +27,6 @@ class InvolvementsController < ApplicationController
     else
       flash[:notice] = "Association has not been destroyed."
     end
-      redirect_to movie_path
+      redirect_to movie
   end
 end
