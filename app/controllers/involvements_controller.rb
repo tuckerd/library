@@ -12,7 +12,6 @@ class InvolvementsController < ApplicationController
     @involvement = Involvement.create(params[:involvement])
     if @involvement.valid?
       flash[:notice] = "Involvement has been registered."
-      raise error
       redirect_to @involvement.movie
     else
       flash[:alert] = "Involvement has not been registered."
