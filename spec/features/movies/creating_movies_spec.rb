@@ -6,7 +6,6 @@ feature "Adding movies" do
     click_link "New Movie"
     fill_in "Title", with: "The West Wing Season 3"
     page.select("DVD", from: "movie_format")
-      #fill_in "Format", with: "DVD"
     click_button "Create Movie"
     page.should have_content("Movie has been added to your library.")
     page.should have_content("The West Wing Season 3")
