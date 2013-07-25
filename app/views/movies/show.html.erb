@@ -1,0 +1,19 @@
+<h3>Movie Details</h3>
+<div>
+  <table>
+    <tr>
+      <th align="right">Title:</th>
+      <td><%= @movie.title %></td>
+    </tr>
+    <tr>
+      <th>Format:</th>
+      <td><%= @movie.format %></td>
+    </tr>
+  </table>
+  <p><%= simple_format(@movie.description) %></p>
+</div>
+
+<%= link_to "All Movies", movies_path %> | 
+<%= link_to "Edit Movie", edit_movie_path %> |
+<%= link_to "Remove Movie", movie_path,
+        method: "delete", confirm: "Are you sure?" %>

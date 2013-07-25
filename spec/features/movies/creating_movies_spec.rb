@@ -9,6 +9,7 @@ feature "Adding movies" do
       #fill_in "Format", with: "DVD"
     click_button "Create Movie"
     page.should have_content("Movie has been added to your library.")
+    page.should have_content("The West Wing Season 3")
   end
 
   scenario "cannot create movie without a title or format" do
@@ -17,6 +18,5 @@ feature "Adding movies" do
     click_button "Create Movie"
     page.should have_content("Movie has not been added to your library.")
     page.should have_content("Title can't be blank")
-    page.should have_content("Format can't be blank")
   end
 end

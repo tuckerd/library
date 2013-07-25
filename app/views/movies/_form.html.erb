@@ -1,0 +1,19 @@
+<%= error_messages_for :movie %>
+  
+<%= form_for @movie do |f| -%>  
+  <p>
+    <%= f.label :title, "Title" %> <br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :format, "Format" %> <br>
+    <%= f.select :format, 
+          [["DVD", "DVD"],["VHS", "VHS"],["Online", "Online"],["Other", "Other"]] %>
+  </p>
+  <p>
+    <%= f.label :description, "Description" %> <br>
+    <%= f.text_area :description %>
+  </p>
+  <%= f.submit %>
+<% end -%>

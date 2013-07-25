@@ -1,1 +1,8 @@
+<table>
+  <th>Title</th>
+    <% @movies.each do |movie| %>
+      <tr><td><%= link_to movie.title, movie %> </td></tr>
+    <% end %>  
+</table>
+<br>
 <%= link_to "New Movie", new_movie_path %>
