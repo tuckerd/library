@@ -8,7 +8,7 @@ feature "Creating people" do
     fill_in "Last Name", with: "Neill"
     fill_in "Bio", with: "http://www.imdb.com/name/nm0000554/bio"
     click_button "Create Person"
-    page.should have_content("Person has been created.")
+    page.should have_content("Person has been added.")
     page.should have_content("Sam")
   end
 end 

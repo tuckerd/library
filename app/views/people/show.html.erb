@@ -1,0 +1,11 @@
+<h3>Person Details</h3>
+<div>
+    <h2>Name:  
+    <%= "#{@person.first_name} + #{@person.last_name}" %>
+    </h2>
+  <p><%= simple_format(@person.bio) %></p>
+</div>
+
+<%= link_to "All People", people_path %> | 
+<%= link_to "Remove Person", person_path,
+        method: "delete", confirm: "Are you sure?" %>
