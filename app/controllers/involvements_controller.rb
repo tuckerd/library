@@ -1,6 +1,11 @@
 class InvolvementsController < ApplicationController
   def new
-    @involvement = Involvement.new
+    if Person.count == 0
+      flash[:alert] = "Association cannot be added until there are people."
+      redirect_to people_path
+    else
+      @involvement = Involvement.new
+    end
   end  
 
   def create

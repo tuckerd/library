@@ -4,4 +4,5 @@ class Involvement < ActiveRecord::Base
   attr_accessible :role, :person_id, :movie_id
   validates :person_id, presence: :true
   validates :movie_id, presence: :true
+  validates :role, presence: :true
 end

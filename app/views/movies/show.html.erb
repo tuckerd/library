@@ -23,10 +23,11 @@
         <tr>
           <td><%= person.name %>  </td>
           <% roles = person.involvements.collect {|i| i.role }%>
-          <td><%= roles.join(', ') %></td>
+          <% roles = roles.join(', ') %>
+          <td><%= roles %></td>
           <td><%= link_to "Delete", involvement_path, 
                   method: "delete", confirm: "Are you sure?" %></td>
-      </tr>
+        </tr>
       <% end %>
     </table>
   <%# end -%>
