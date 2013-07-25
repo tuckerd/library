@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <%= link_to "People", people_path %> |
+    <%= link_to "Movies", movies_path %>
+  </nav>
+  <br>
   <% flash.each do |key, value| %>
     <div class="flash" id="<%= key %>">
       <%= value %>

@@ -5,6 +5,7 @@ Library::Application.routes.draw do
 
   resources :people
 
+  resources :involvements
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

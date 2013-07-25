@@ -1,0 +1,27 @@
+<%= error_messages_for :involvement %>
+
+<%= form_for @involvement do |f| -%>
+  <p>
+  <%= f.label :person, "Person" %>  
+  <% people = [] %>
+  <% Person.all.each do |person| %>
+    <% people.push([person.name, person.id])  %>
+  <% end %>
+  <%= f.select(:person_id, people) %> <br>
+
+  <%= f.label :role, "Role" %>
+  <%= f.text_field :role %>
+  </p>
+
+  <p>
+  <%= f.label :movie, "Movie" %>
+  <%  movies = [] %>
+  <% Movie.all.each do |movie| %>
+    <% movies.push([movie.title, movie.id]) %>
+  <% end %>
+  <%= f.select(:movie_id, movies) %> <br>
+  </p>
+
+  <%= f.submit "Submit" %>
+
+<% end -%>

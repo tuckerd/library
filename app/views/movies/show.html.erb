@@ -11,9 +11,31 @@
     </tr>
   </table>
   <p><%= simple_format(@movie.description) %></p>
+
+  <%#= unless @movie.people.empty? do %>
+    <table>
+      <tr>
+        <th>Person</th>
+        <th>Role</th>
+        <th></th>
+      </tr>
+      <% @movie.people.each do |person| %>
+        <tr>
+          <td><%= person.name %>  </td>
+          <% roles = person.involvements.collect {|i| i.role }%>
+          <td><%= roles.join(', ') %></td>
+          <td><%= link_to "Delete", involvement_path, 
+                  method: "delete", confirm: "Are you sure?" %></td>
+      </tr>
+      <% end %>
+    </table>
+  <%# end -%>
 </div>
 
 <%= link_to "All Movies", movies_path %> | 
 <%= link_to "Edit Movie", edit_movie_path %> |
 <%= link_to "Remove Movie", movie_path,
-        method: "delete", confirm: "Are you sure?" %>
+        method: "delete", confirm: "Are you sure?" %> |
+
+
+<%= link_to "Associate People", new_involvement_path %>
