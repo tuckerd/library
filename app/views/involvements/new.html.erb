@@ -14,7 +14,7 @@
   <p>
   <%= f.label :movie, "Movie" %>
   <% movies = @movies.map {|movie| [movie.title, movie.id] }%>
-  <%= f.select(:person_id, options_for_select(movies)) %> <br>
+  <%= f.select(:movie_id, options_for_select(movies)) %> <br>
   </p>
 
   <%= f.submit "Submit" %>
