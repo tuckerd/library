@@ -1,4 +1,6 @@
 class InvolvementsController < ApplicationController
+  before_filter :find_movies_and_people, only: [:new, :create]
+
   def new
     if Person.count == 0
       flash[:alert] = "Association cannot be added until there are people."
@@ -29,5 +31,11 @@ class InvolvementsController < ApplicationController
       flash[:notice] = "Association has not been destroyed."
     end
       redirect_to movie
+  end
+
+private
+  def find_movies_and_people
+    @movies = Movie.all
+    @people = Person.all
   end
 end

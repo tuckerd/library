@@ -4,23 +4,17 @@
 <%= form_for @involvement do |f| -%>
   <p>
   <%= f.label :person, "Person" %>  
-  <% people = [] %>
-  <% Person.all.each do |person| %>
-    <% people.push([person.name, person.id])  %>
-  <% end %>
-  <%= f.select(:person_id, people) %> <br>
-
+  <% people = @people.map {|person| [person.name, person.id] }%>
+  <%= f.select(:person_id, options_for_select(people)) %> <br>
+  
   <%= f.label :role, "Role" %>
   <%= f.text_field :role %>
   </p>
 
   <p>
   <%= f.label :movie, "Movie" %>
-  <%  movies = [] %>
-  <% Movie.all.each do |movie| %>
-    <% movies.push([movie.title, movie.id]) %>
-  <% end %>
-  <%= f.select(:movie_id, movies) %> <br>
+  <% movies = @movies.map {|movie| [movie.title, movie.id] }%>
+  <%= f.select(:person_id, options_for_select(movies)) %> <br>
   </p>
 
   <%= f.submit "Submit" %>
