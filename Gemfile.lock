@@ -76,6 +76,7 @@ GEM
     multi_json (1.7.7)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    pg (0.16.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -153,6 +154,7 @@ DEPENDENCIES
   factory_girl
   jquery-rails
   launchy
+  pg
   pry
   rails (= 3.2.13)
   rspec-rails
