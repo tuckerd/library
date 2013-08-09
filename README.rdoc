@@ -1,5 +1,0 @@
-==Library  (CodeFellows - App A Day)
-
-This app is designed to keep track of your personal video library.
-
-This mini app was an exercise in exploring has-many through relationship.  Each video can have an actor/director/etc and each actor,etc. can be involved in many movies.  The join resource is modeled by involvement and the role is an attribute of involvement.
