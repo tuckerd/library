@@ -14,9 +14,9 @@ Screenshots of the application are below:
 
 Main Screen...
 
-![Main View](app/assets/images/main.png)
+![Main View](lib/assets/main.png)
 
-![Show View](app/assets/images/show.png)
+![Show View](lib/assets/show.png)
 
 ### Installation
 There are no known special installation instructions.
